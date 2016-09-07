@@ -1,0 +1,35 @@
+{
+  "name": "universal-search",
+  "version": "0.0.1",
+  "description": "Unified front-end client for various 3rd-party search services.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artchen/universal-search.git"
+  },
+  "keywords": [
+    "search"
+  ],
+  "author": "Art Chen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/artchen/universal-search/issues"
+  },
+  "homepage": "https://github.com/artchen/universal-search#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-jshint": "^2.0.1",
+    "gulp-less": "^3.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.9"
+  }
+}

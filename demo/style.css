@@ -1,0 +1,56 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 150px auto 0px auto;
+  z-index: 2;
+}
+.container h1 {
+  text-align: center;
+  margin: 30px auto;
+  color: #414141;
+}
+#searchform {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0px auto 20px auto;
+  padding: 0px 15px;
+  z-index: 2;
+}
+#searchform button {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  color: white;
+  border: 0;
+  text-align: center;
+  font-size: 18px;
+}
+#searchform button span {
+  line-height: 36px;
+}
+#searchform input[type="text"] {
+  width: 100%;
+  padding: 0px 10px;
+  line-height: 36px;
+  height: 36px;
+  font-size: 14px;
+  font-family: "Ubuntu", sans-serif;
+  border: none;
+  border-radius: 0 !important;
+  background: #414141;
+  color: white;
+  box-sizing: border-box;
+  transition: all 0.24s ease;
+}
+#searchform input[type="text"]:focus {
+  background: black;
+}
