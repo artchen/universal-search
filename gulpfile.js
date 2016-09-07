@@ -54,12 +54,13 @@ gulp.task('fonts', function() {
 
 gulp.task('js', function() {
   gulp.src(path.JS)
-  	.pipe(sourcemaps.init())
-			.pipe(concat('universal-search.js'))
-			.pipe(uglify())
-		.pipe(sourcemaps.write())
+    .pipe(concat('universal-search.js'))
     .pipe(gulp.dest(path.DIST))
     .pipe(gulp.dest(path.DEMO));
+  gulp.src(path.JS)
+    .pipe(concat('universal-search.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(path.DIST));
 });
 
 gulp.task('less', function () {
