@@ -63,11 +63,13 @@ Please also be aware that this front-end client requires [jQuery](https://jquery
 });
 ```
 
-### Baidu Search
+### Baidu Search (dev in progress)
 
 ```javascript
 (function() {
-  var customSearch = new BaiduSearch();
+  var customSearch = new BaiduSearch({
+    apiId: "YOUR_BAIDU_API_ID"
+  });
 })();
 ```
 
@@ -75,7 +77,7 @@ You must keep the relative path of `style.css` and `/fonts`, otherwise your need
 
 ## Demo
 
-A demo will be generated on install. Replace your credentials in `config.js` to preview.
+This repository contains a demo folder. Please replace your credentials in `demo/config.js` to preview.
 
 ## Development
 
