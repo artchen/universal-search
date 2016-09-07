@@ -23,8 +23,9 @@ Please also be aware that this front-end client requires [jQuery](https://jquery
 ### Google Custom Search
 
 ```javascript
+var customSearch;
 (function() {
-  var customSearch = new GoogleCustomSearch({
+  customSearch = new GoogleCustomSearch({
     apiKey: "YOUR_GOOGLE_CUSTOM_SEARCH_API_KEY",
     engineId: "YOUR_GOOGLE_CUSTOM_SEARCH_ENGINE_ID"
   });
@@ -34,8 +35,9 @@ Please also be aware that this front-end client requires [jQuery](https://jquery
 ### Algolia Search
 
 ```javascript
+var customSearch;
 (function() {
-  var customSearch = new AlgoliaSearch({
+  customSearch = new AlgoliaSearch({
     apiKey: "YOUR_ALGOLIA_API_KEY",
     appId: "YOUR_ALGOLIA_APPLICATION_ID",
     indexName: "YOUR_ALGOLIA_INDEX_NAME"
@@ -46,16 +48,18 @@ Please also be aware that this front-end client requires [jQuery](https://jquery
 ### Hexo Local Search
 
 ```javascript
+var customSearch;
 (function() {
-  var customSearch = new HexoSearch();
+  customSearch = new HexoSearch();
 })();
 ```
 
 ### Azure Search
 
 ```javascript
+var customSearch;
 (function() {
-  var customSearch = new AzureSearch({
+  customSearch = new AzureSearch({
     serviceName: "YOUR_AZURE_SERVICE_NAME",
     indexName: "YOUR_AZURE_INDEX_NAME",
     queryKey: "YOUR_AZURE_QUERY_KEY"
@@ -66,8 +70,9 @@ Please also be aware that this front-end client requires [jQuery](https://jquery
 ### Baidu Search (dev in progress)
 
 ```javascript
+var customSearch;
 (function() {
-  var customSearch = new BaiduSearch({
+  customSearch = new BaiduSearch({
     apiId: "YOUR_BAIDU_API_ID"
   });
 })();
