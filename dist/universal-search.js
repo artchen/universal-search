@@ -204,7 +204,7 @@ var SearchService = "";
      * no param
      */
     self.init = function() {
-      $('body').prepend(template);
+      $('body').append(template);
       self.parseSelectors();
       self.dom.form.each(function(index,elem) {
         $(elem).on('submit', self.onSubmit);
@@ -446,12 +446,18 @@ var BaiduSearch;
     self.addLogo('baidu');
 
     self.loadScript = function() {
+      self.dom.input.each(function(index,elem) {
+        $(elem).attr('disabled', true);
+      });
       var script = "<script src='http://zhannei.baidu.com/api/customsearch/apiaccept?sid=" +self.config.apiId+ "&v=2.0&callback=customSearch.initBaidu' type='text/javascript' charset='utf-8'></script>";
       self.dom.body.append(script);
     };
 
     self.initBaidu = function() {
       self.cse = new BCse.Search(self.config.apiId);
+      self.dom.input.each(function(index,elem) {
+        $(elem).attr('disabled', false);
+      });
     };
 
     /**

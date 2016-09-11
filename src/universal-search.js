@@ -204,7 +204,7 @@ var SearchService = "";
      * no param
      */
     self.init = function() {
-      $('body').prepend(template);
+      $('body').append(template);
       self.parseSelectors();
       self.dom.form.each(function(index,elem) {
         $(elem).on('submit', self.onSubmit);
