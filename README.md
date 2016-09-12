@@ -15,12 +15,14 @@ Please also be aware that this front-end client requires [jQuery](https://jquery
 
 ## Production
 
-* Copy all files under `/dist` directory into your project. 
+* Copy files under `/dist` directory into your project. For `.js` file, only copy the files with a suffix of the search service you are going to use.
 * Make sure you have jQuery loaded on your page.
 * Load the contents in `style.css` and `universal-search.js` on your page.
 * Enable a search service like the following examples:
 
 ### Google Custom Search
+
+Use `universal-search-google.js` or `universal-search-google.min.js`.
 
 ```javascript
 var customSearch;
@@ -33,6 +35,8 @@ var customSearch;
 ```
 
 ### Algolia Search
+
+Use `universal-search-algolia.js` or `universal-search-algolia.min.js`.
 
 ```javascript
 var customSearch;
@@ -47,6 +51,8 @@ var customSearch;
 
 ### Hexo Local Search
 
+Use `universal-search-hexo.js` or `universal-search-hexo.min.js`.
+
 ```javascript
 var customSearch;
 (function() {
@@ -55,6 +61,8 @@ var customSearch;
 ```
 
 ### Azure Search
+
+Use `universal-search-azure.js` or `universal-search-azure.min.js`.
 
 ```javascript
 var customSearch;
@@ -68,6 +76,8 @@ var customSearch;
 ```
 
 ### Baidu Search (dev in progress)
+
+Use `universal-search-baidu.js` or `universal-search-baidu.min.js`.
 
 ```javascript
 var customSearch;
@@ -91,6 +101,7 @@ Clone this project and install.
 ```bash
 git clone https://github.com/artchen/universal-search.git
 npm install
+gulp
 ```
 
 To change the HTML template, please modify `src/template.html` and replace the corresponding variable in `src/universal-search.js`.
