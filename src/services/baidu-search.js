@@ -46,6 +46,8 @@ var BaiduSearch;
 
     self.initBaidu = function() {
       self.cse = new BCse.Search(self.config.apiId);
+      self.cse.setPageNum(self.config.per_page);
+      self.cse.openTimeOrder();
       self.dom.input.each(function(index,elem) {
         $(elem).attr('disabled', false);
       });
@@ -58,18 +60,32 @@ var BaiduSearch;
      * @param callback {Function}
      */
     self.query = function(queryText, page, callback) {
-      self.cse.setPageNum(self.config.per_page);
       self.cse.getResult(queryText, function(data) {
+        console.log("Searching: " + queryText);
         console.log(data);
-        self.buildResultList(data, queryText);
-        self.cse.getSearchInfo(queryText, function(data) {
+        self.cse.getError(function(data) {
           console.log(data);
-          self.buildMetadata(data)
         });
+        if (data.length > 0) {
+          self.buildResultList(data, queryText);
+          self.cse.getSearchInfo(queryText, function(data) {
+            console.log(data);
+            self.buildMetadata(data);
+          });
+        }
+        else {
+          self.nav.total = 0;
+          self.nav.next = -1;
+          self.nav.prev = -1;
+          self.dom.modal_metadata.hide();
+          self.dom.btn_next.hide();
+          self.dom.btn_prev.hide();
+          self.onQueryError(queryText, "success");
+        }
         if (callback instanceof Function) {
           callback();
         }
-      }, page);
+      });
     };
 
     self.loadScript();

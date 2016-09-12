@@ -9,6 +9,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
 var jshint = require('gulp-jshint');
+var fs = require('fs');
 
 var path = {
   LESS: [
@@ -53,14 +54,29 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('js', function() {
+  // create an all-in-one bundle for demo
   gulp.src(path.JS)
-    .pipe(concat('universal-search.js'))
+    .pipe(concat('universal-search-all.js'))
     .pipe(gulp.dest(path.DIST))
-    .pipe(gulp.dest(path.DEMO));
-  gulp.src(path.JS)
-    .pipe(concat('universal-search.min.js'))
+    .pipe(gulp.dest(path.DEMO))
+    .pipe(concat('universal-search-all.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(path.DIST));
+  // create per service bundles
+  var dirname = 'src/services/';
+  fs.readdir(dirname, function(err, filenames) {
+    if (err) return;
+    filenames.forEach(function(filename) {
+      var paths = ['src/*.js', dirname+filename];
+      var service = filename.split('-')[0];
+      gulp.src(paths)
+        .pipe(concat('universal-search-' +service+ '.js'))
+        .pipe(gulp.dest(path.DIST))
+        .pipe(concat('universal-search-' +service+ '.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(path.DIST));
+    });
+  });
 });
 
 gulp.task('less', function () {
