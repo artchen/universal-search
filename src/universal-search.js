@@ -155,7 +155,9 @@ var SearchService = "";
     self.onSubmit = function(event) {
       event.preventDefault();
       self.queryText = $(this).find('.u-search-input').val();
-      self.search(1);
+      if (self.queryText) {
+        self.search(1);
+      }
     };
     
     /**

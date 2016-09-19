@@ -30,6 +30,7 @@
     "gulp-less": "^3.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^2.0.0",
-    "gulp-watch": "^4.3.9"
+    "gulp-watch": "^4.3.9",
+    "jshint": "^2.9.3"
   }
 }

@@ -154,8 +154,10 @@ var SearchService = "";
      */
     self.onSubmit = function(event) {
       event.preventDefault();
-      self.queryText = $(this).children('.u-search-input').val();
-      self.search(1);
+      self.queryText = $(this).find('.u-search-input').val();
+      if (self.queryText) {
+        self.search(1);
+      }
     };
     
     /**
@@ -197,6 +199,17 @@ var SearchService = "";
         self.dom.modal_logo.html(html);
         self.dom.modal_logo.addClass(service);
       }
+    };
+
+    self.destroy = function() {
+      self.dom.form.each(function(index,elem) {
+        $(elem).off('submit');
+      });
+      self.dom.modal_overlay.off('click');
+      self.dom.btn_close.off('click');
+      self.dom.btn_next.off('click');
+      self.dom.btn_prev.off('click');
+      self.dom.container.remove();
     };
     
     /**

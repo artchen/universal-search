@@ -154,8 +154,10 @@ var SearchService = "";
      */
     self.onSubmit = function(event) {
       event.preventDefault();
-      self.queryText = $(this).children('.u-search-input').val();
-      self.search(1);
+      self.queryText = $(this).find('.u-search-input').val();
+      if (self.queryText) {
+        self.search(1);
+      }
     };
     
     /**
@@ -198,6 +200,17 @@ var SearchService = "";
         self.dom.modal_logo.addClass(service);
       }
     };
+
+    self.destroy = function() {
+      self.dom.form.each(function(index,elem) {
+        $(elem).off('submit');
+      });
+      self.dom.modal_overlay.off('click');
+      self.dom.btn_close.off('click');
+      self.dom.btn_next.off('click');
+      self.dom.btn_prev.off('click');
+      self.dom.container.remove();
+    };
     
     /**
      * Load template and register event handlers
@@ -233,7 +246,7 @@ var HexoSearch;
   HexoSearch = function(options) {
     SearchService.apply(this, arguments);
     var self = this;
-    var endpoint = "/content.json";
+    self.config.endpoint = (options||{}).endpoint || "/content.json";
     self.cache = "";
     
     /**
@@ -319,7 +332,7 @@ var HexoSearch;
      */
     self.query = function(queryText, startIndex, callback) {
       if (!self.cache) {
-        $.get(endpoint, {
+        $.get(self.config.endpoint, {
           key: self.config.apiKey,
           cx: self.config.engineId,
           q: queryText,
