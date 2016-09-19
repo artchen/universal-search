@@ -193,11 +193,10 @@ var SearchService = "";
     self.addLogo = function(service) {
       var html = "";
       if (self.config.brands[service] && self.config.brands[service].logo) {
-        html += "<a href='" +self.config.brands[service].url+ "'>";
+        html += "<a href='" +self.config.brands[service].url+ "' class='" +service+ "'>";
         html +=    '<img src="' +self.config.brands[service].logo+ '" />';
         html += "</a>";
         self.dom.modal_logo.html(html);
-        self.dom.modal_logo.addClass(service);
       }
     };
 
