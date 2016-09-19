@@ -10,7 +10,7 @@ var HexoSearch;
   HexoSearch = function(options) {
     SearchService.apply(this, arguments);
     var self = this;
-    var endpoint = "/content.json";
+    self.config.endpoint = (options||{}).endpoint || "/content.json";
     self.cache = "";
     
     /**
@@ -96,7 +96,7 @@ var HexoSearch;
      */
     self.query = function(queryText, startIndex, callback) {
       if (!self.cache) {
-        $.get(endpoint, {
+        $.get(self.config.endpoint, {
           key: self.config.apiKey,
           cx: self.config.engineId,
           q: queryText,

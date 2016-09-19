@@ -46,8 +46,7 @@ var BaiduSearch;
 
     self.initBaidu = function() {
       self.cse = new BCse.Search(self.config.apiId);
-      self.cse.setPageNum(self.config.per_page);
-      self.cse.openTimeOrder();
+      //self.cse.setPageNum(self.config.per_page);
       self.dom.input.each(function(index,elem) {
         $(elem).attr('disabled', false);
       });
