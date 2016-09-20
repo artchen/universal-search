@@ -135,6 +135,7 @@ var HexoSearch;
       }
     };
     
+    return self;
   };
 
 })(jQuery);

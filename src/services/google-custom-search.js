@@ -90,5 +90,6 @@ var GoogleCustomSearch = "";
       });
     };
     
+    return self;
   };
 })(jQuery);

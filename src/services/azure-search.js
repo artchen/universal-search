@@ -104,6 +104,7 @@ var AzureSearch;
       });
     };
 
+    return self;
   };
 
 })(jQuery);

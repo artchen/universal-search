@@ -94,6 +94,7 @@ var AlgoliaSearch;
       });
     };
     
+    return self;
   };
 
 })(jQuery);

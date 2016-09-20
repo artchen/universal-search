@@ -89,6 +89,7 @@ var BaiduSearch;
 
     self.loadScript();
     
+    return self;
   };
 
 })(jQuery);
