@@ -30,12 +30,13 @@ var SearchService = "";
         btn_prev: "#u-search .btn-prev"
       },
       brands: {
-        'google': {logo: '/img/google.svg', url: 'https://cse.google.com'},
-        'algolia': {logo: '/img/algolia.svg', url: 'https://www.algolia.com'},
+        'google': {logo: 'google.svg', url: 'https://cse.google.com'},
+        'algolia': {logo: 'algolia.svg', url: 'https://www.algolia.com'},
         'hexo': {logo: '', url: ''},
-        'azure': {logo: '/img/azure.svg', url: 'https://azure.microsoft.com/en-us/services/search/'},
-        'baidu': {logo: '/img/baidu.svg', url: 'http://zn.baidu.com/cse/home/index'}
-      }
+        'azure': {logo: 'azure.svg', url: 'https://azure.microsoft.com/en-us/services/search/'},
+        'baidu': {logo: 'baidu.svg', url: 'http://zn.baidu.com/cse/home/index'}
+      },
+      imagePath: "/img/"
     }, options);
 
     self.dom = {};
@@ -194,7 +195,7 @@ var SearchService = "";
       var html = "";
       if (self.config.brands[service] && self.config.brands[service].logo) {
         html += "<a href='" +self.config.brands[service].url+ "' class='" +service+ "'>";
-        html +=    '<img src="' +self.config.brands[service].logo+ '" />';
+        html +=    '<img src="' +self.config.imagePath+self.config.brands[service].logo+ '" />';
         html += "</a>";
         self.dom.modal_logo.html(html);
       }
@@ -218,6 +219,7 @@ var SearchService = "";
     self.init = function() {
       $('body').append(template);
       self.parseSelectors();
+      self.dom.modal_footer.show();
       self.dom.form.each(function(index,elem) {
         $(elem).on('submit', self.onSubmit);
       });
@@ -228,8 +230,6 @@ var SearchService = "";
     };
 
     self.init();
-
-    return self;
   };
 
   var template = '<div id="u-search"><div class="modal"> <header class="modal-header" class="clearfix"><form id="u-search-modal-form" class="u-search-form" name="uSearchModalForm"> <input type="text" id="u-search-modal-input" class="u-search-input" /> <button type="submit" id="u-search-modal-btn-submit" class="u-search-btn-submit"> <span class="icon icon-search"></span> </button></form> <a class="btn-close"> <span class="icon icon-close"></span> </a><div class="modal-loading"><div class="modal-loading-bar"></div></div> </header> <main class="modal-body"><ul class="modal-results modal-ajax-content"></ul> </main> <footer class="modal-footer clearfix"><div class="modal-metadata modal-ajax-content"> <strong class="range"></strong> of <strong class="total"></strong></div><div class="modal-error"></div> <div class="logo"></div> <a class="nav btn-next modal-ajax-content"> <span class="text">NEXT</span> <span class="icon icon-chevron-right"></span> </a> <a class="nav btn-prev modal-ajax-content"> <span class="icon icon-chevron-left"></span> <span class="text">PREV</span> </a> </footer></div><div class="modal-overlay"></div></div>';
