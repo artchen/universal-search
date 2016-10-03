@@ -263,7 +263,7 @@ var AzureSearch;
           url = "/" + url;
         }
         var title = row.title;
-        var digest = row.excerptStrip || "";
+        var digest = row.excerpt || "";
         html += self.buildResult(url, title, digest);
       });
       return html;
@@ -320,6 +320,7 @@ var AzureSearch;
         },
         data: {
           search: queryText,
+          $orderby: "date desc",
           $skip: startIndex-1,
           $top: self.config.per_page,
           $count: true
