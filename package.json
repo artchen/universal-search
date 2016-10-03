@@ -1,6 +1,6 @@
 {
   "name": "universal-search",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Unified front-end client for various 3rd-party search services.",
   "main": "index.js",
   "scripts": {
