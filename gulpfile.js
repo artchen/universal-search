@@ -31,7 +31,7 @@ var all_tasks = ['lint', 'less', 'js', 'img', 'fonts'];
 gulp.task('demo', function() {
 	connect.server({
 		root: path.DEMO,
-		port: 4000
+		port: 4763
 	});
 });
 

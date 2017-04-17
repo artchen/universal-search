@@ -1,7 +1,7 @@
 var customSearch;
 
 (function($) {
-    var SEARCH_SERVICE = 'baidu'; // google|algolia|hexo|azure|baidu
+    var SEARCH_SERVICE = 'algolia'; // google|algolia|hexo|azure|baidu
 
     var GOOGLE_CUSTOM_SEARCH_API_KEY = "AIzaSyBFj4A2FRz36n1bLiOQbcGhmUdpM-buAZ0";
     var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "017821029378163458527:c46kp7iwut4";
