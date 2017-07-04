@@ -121,7 +121,7 @@ var HexoSearch;
           if (callback) {
             callback(data);
           }
-        });
+        }, 'json');
       }
       else {
         var results = ""; 
