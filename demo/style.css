@@ -1,11 +1,11 @@
 body {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 .container {
   position: relative;
   width: 100%;
   max-width: 700px;
-  margin: 150px auto 0px auto;
+  margin: 150px auto 0 auto;
   z-index: 2;
 }
 .container h1 {
@@ -17,8 +17,8 @@ body {
   position: relative;
   width: 100%;
   max-width: 700px;
-  margin: 0px auto 20px auto;
-  padding: 0px 15px;
+  margin: 0 auto 20px auto;
+  padding: 0 15px;
   z-index: 2;
 }
 #searchform button {
@@ -39,7 +39,7 @@ body {
 }
 #searchform input[type="text"] {
   width: 100%;
-  padding: 0px 10px;
+  padding: 0 10px;
   line-height: 36px;
   height: 36px;
   font-size: 14px;
